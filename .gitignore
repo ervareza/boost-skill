@@ -4,6 +4,7 @@ node_modules/
 .env.*
 !.env.example
 .worktrees/
+.codebase-memory/
 boost-runs/
 coverage/
 .nyc_output/
