@@ -18,27 +18,42 @@ const ROOT = join(__dirname, "..");
 
 const args = process.argv.slice(2);
 const command = args[0] || "help";
-const taskName = args[1] || `boost-task-${Date.now()}`;
+const taskName = args[1] || "";
 
 function printBanner() {
   console.log(`\x1b[36m
   ____                   _     ____  _     _ _ _ 
  | __ )  ___   ___  ___ | |_  / ___|| | _ (_) | |
- |  _ \ / _ \ / _ \/ __|| __| \___ \| |/ /| | | |
- | |_) | (_) | (_) \__ \| |_   ___) |   < | | | |
- |____/ \___/ \___/|___/ \__| |____/|_|\_\|_|_|_|
+ |  _ \\ / _ \\ / _ \\/ __|| __| \\___ \\| |/ /| | | |
+ | |_) | (_) | (_) \\__ \\| |_   ___) |   < | | | |
+ |____/ \\___/ \\___/|___/ \\__| |____/|_|\\_\\|_|_|_|
 \x1b[0m
   \x1b[1m⚡ Universal /boost Multi-Agent Reasoning & Verification Protocol\x1b[0m
   \x1b[90mEngineered by Ervareza Naurian • Inspired by Google Antigravity /boost\x1b[0m\n`);
+}
+
+// Invariant: task name security validation (alphanumeric + safe symbols)
+function validateTaskName(name) {
+  if (!name) return true;
+  const safeRegex = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
+  if (!safeRegex.test(name) || name.includes("..")) {
+    console.error(`\x1b[31m❌ Error:\x1b[0m Invalid task name '${name}'. Allowed: [A-Za-z0-9._-], no path traversal.`);
+    process.exit(1);
+  }
+  return true;
 }
 
 function runScript(scriptName, scriptArgs = []) {
   const scriptPath = join(ROOT, "scripts", scriptName);
   const result = spawnSync("bash", [scriptPath, ...scriptArgs], {
     stdio: "inherit",
-    shell: true,
+    shell: false, // Invariant: no shell injection
   });
-  return result.status === 0;
+  
+  if (result.status !== 0) {
+    process.exit(result.status || 1);
+  }
+  return true;
 }
 
 switch (command) {
@@ -77,22 +92,26 @@ switch (command) {
 
   case "init":
     printBanner();
-    runScript("boost-runner.sh", ["init", taskName]);
+    validateTaskName(taskName);
+    runScript("boost-runner.sh", taskName ? ["init", taskName] : ["init"]);
     break;
 
   case "verify":
     printBanner();
-    runScript("boost-runner.sh", ["verify", taskName]);
+    validateTaskName(taskName);
+    runScript("boost-runner.sh", taskName ? ["verify", taskName] : ["verify"]);
     break;
 
   case "reconcile":
     printBanner();
-    runScript("boost-runner.sh", ["reconcile", taskName]);
+    validateTaskName(taskName);
+    runScript("boost-runner.sh", taskName ? ["reconcile", taskName] : ["reconcile"]);
     break;
 
   case "abort":
     printBanner();
-    runScript("boost-runner.sh", ["abort", taskName]);
+    validateTaskName(taskName);
+    runScript("boost-runner.sh", taskName ? ["abort", taskName] : ["abort"]);
     break;
 
   case "test":
@@ -105,7 +124,7 @@ switch (command) {
     printBanner();
     console.log(`Usage:
   \x1b[36mboost install\x1b[0m               Install adapters to Hermes, Claude, Codex & OpenCode
-  \x1b[36mboost init <task_name>\x1b[0m      Spawn an isolated ephemeral Git worktree
+  \x1b[36mboost init [task_name]\x1b[0m      Spawn an isolated ephemeral Git worktree
   \x1b[36mboost verify <task_name>\x1b[0m    Execute physical test & compiler verification
   \x1b[36mboost reconcile <task_name>\x1b[0m Merge verified code into current branch & cleanup
   \x1b[36mboost abort <task_name>\x1b[0m     Prune worktree and discard changes
