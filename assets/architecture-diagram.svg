@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="1000" height="480">
+  <defs>
+    <linearGradient id="box-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121622" />
+      <stop offset="100%" stop-color="#0a0d14" />
+    </linearGradient>
+    <linearGradient id="accent-cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00f0ff" />
+      <stop offset="100%" stop-color="#2a41ff" />
+    </linearGradient>
+    <linearGradient id="accent-purple" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7928ca" />
+      <stop offset="100%" stop-color="#ff0080" />
+    </linearGradient>
+    <linearGradient id="accent-green" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00df89" />
+      <stop offset="100%" stop-color="#00b4d8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.5" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="480" rx="16" fill="#080a0f" />
+  
+  <!-- Header -->
+  <g transform="translate(40, 40)">
+    <text x="0" y="0" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700">3-Phase Multi-Agent Execution Pipeline</text>
+    <text x="0" y="24" fill="#6c788d" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">Architectural comparison: Linear Single-Agent vs /boost Verification Loop</text>
+  </g>
+
+  <!-- Phase 1: Planning -->
+  <g transform="translate(40, 95)" filter="url(#shadow)">
+    <rect width="280" height="260" rx="12" fill="url(#box-bg)" stroke="#2a41ff" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="20" y="20" width="28" height="28" rx="6" fill="#2a41ff" fill-opacity="0.2" />
+    <text x="34" y="39" text-anchor="middle" fill="#00d2ff" font-family="monospace" font-size="12" font-weight="700">P1</text>
+    <text x="60" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="600">Planning &amp; Isolation</text>
+    
+    <path d="M 20 65 L 260 65" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+    
+    <text x="20" y="95" fill="#8e9bb0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" line-height="1.6">
+      <tspan x="20" dy="0">• AST Call-Graph Scan</tspan>
+      <tspan x="20" dy="24">• Task Decomposition</tspan>
+      <tspan x="20" dy="24">• Worktree Isolation:</tspan>
+      <tspan x="30" dy="20" fill="#00f0ff" font-family="monospace">git worktree add</tspan>
+      <tspan x="30" dy="18" fill="#00f0ff" font-family="monospace">.worktrees/boost-X</tspan>
+      <tspan x="20" dy="24" fill="#5eead4">• Zero Working-Tree Dirty</tspan>
+    </text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <path d="M 330 225 L 360 225" stroke="#00f0ff" stroke-width="2" stroke-dasharray="4 4" />
+  <polygon points="360,221 368,225 360,229" fill="#00f0ff" />
+
+  <!-- Phase 2: Distributed Subagents -->
+  <g transform="translate(370, 95)" filter="url(#shadow)">
+    <rect width="280" height="260" rx="12" fill="url(#box-bg)" stroke="#7928ca" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="20" y="20" width="28" height="28" rx="6" fill="#7928ca" fill-opacity="0.2" />
+    <text x="34" y="39" text-anchor="middle" fill="#d946ef" font-family="monospace" font-size="12" font-weight="700">P2</text>
+    <text x="60" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="600">Parallel Subagents</text>
+    
+    <path d="M 20 65 L 260 65" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+    
+    <!-- Subagent badges -->
+    <rect x="20" y="80" width="240" height="42" rx="6" fill="#181e2e" />
+    <text x="30" y="100" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">🔍 Investigator Worker</text>
+    <text x="30" y="114" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Read-only AST &amp; trace reproduction</text>
+
+    <rect x="20" y="130" width="240" height="42" rx="6" fill="#181e2e" />
+    <text x="30" y="150" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">🛠️ Implementation Worker</text>
+    <text x="30" y="164" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Surgical code modifications</text>
+
+    <rect x="20" y="180" width="240" height="42" rx="6" fill="#181e2e" />
+    <text x="30" y="200" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">🧪 QA / TDD Test Crafter</text>
+    <text x="30" y="214" fill="#64748b" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Creates failing assertions first</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <path d="M 660 225 L 690 225" stroke="#d946ef" stroke-width="2" stroke-dasharray="4 4" />
+  <polygon points="690,221 698,225 690,229" fill="#d946ef" />
+
+  <!-- Phase 3: Physical Verification -->
+  <g transform="translate(700, 95)" filter="url(#shadow)">
+    <rect width="260" height="260" rx="12" fill="url(#box-bg)" stroke="#00df89" stroke-opacity="0.4" stroke-width="1.5" />
+    <rect x="20" y="20" width="28" height="28" rx="6" fill="#00df89" fill-opacity="0.2" />
+    <text x="34" y="39" text-anchor="middle" fill="#00df89" font-family="monospace" font-size="12" font-weight="700">P3</text>
+    <text x="60" y="38" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="600">Physical Verification</text>
+    
+    <path d="M 20 65 L 240 65" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+
+    <text x="20" y="95" fill="#8e9bb0" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" line-height="1.6">
+      <tspan x="20" dy="0">• Build &amp; Typecheck Exec</tspan>
+      <tspan x="20" dy="24">• Test Suite (Exit Code 0)</tspan>
+      <tspan x="20" dy="24">• Self-Healing Loop:</tspan>
+      <tspan x="30" dy="20" fill="#fbbf24" font-family="monospace">Max 5 Iterations</tspan>
+      <tspan x="20" dy="24">• Merge Verified Branch</tspan>
+      <tspan x="20" dy="20" fill="#4ade80">• Prune Worktree &amp; Deliver</tspan>
+    </text>
+  </g>
+
+  <!-- Bottom Bar: Invariant Banner -->
+  <g transform="translate(40, 385)">
+    <rect width="920" height="55" rx="8" fill="#0e131d" stroke="#ffffff" stroke-opacity="0.06" />
+    <text x="24" y="32" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13">
+      <tspan fill="#38bdf8" font-weight="600">Core Invariant:</tspan> No AI code is ever merged or reported as finished without real compiler and test suite pass logs.
+    </text>
+  </g>
+</svg>

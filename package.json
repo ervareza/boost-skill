@@ -2,13 +2,18 @@
   "name": "boost-skill",
   "version": "1.0.0",
   "description": "Universal /boost multi-agent reasoning and independent verification pipeline for all AI coding CLIs and agent environments.",
-  "author": "Ervareza Naurian <rianskp644@gmail.com> (https://github.com/ervareza)",
+  "author": "Ervareza Naurian (https://github.com/ervareza)",
   "license": "MIT",
   "homepage": "https://github.com/ervareza/boost-skill",
   "repository": {
     "type": "git",
     "url": "https://github.com/ervareza/boost-skill.git"
   },
+  "bin": {
+    "boost": "bin/boost.mjs",
+    "boost-skill": "bin/boost.mjs"
+  },
+  "type": "module",
   "keywords": [
     "boost",
     "antigravity",

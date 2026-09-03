@@ -17,58 +17,74 @@
 
 ---
 
-## 📖 Introduction & Mission
+## ⚡ 1-Line Quick Install
 
-When Google launched the **`/boost`** slash command in **Google Antigravity CLI (September 2026)**, it introduced a major paradigm shift: moving from single-turn linear AI code generation to a **distributed multi-agent reasoning and verification pipeline**.
+Install **Boost Skill** across all detected AI agent environments on your machine in one command:
 
-Instead of guessing a solution in one go, `/boost` decomposes hard software engineering challenges across specialized subagent teams, isolates changes inside ephemeral Git worktrees, and guarantees that code is delivered **only after test suites pass 100% physically**.
+```bash
+curl -fsSL https://raw.githubusercontent.com/ervareza/boost-skill/main/install.sh | bash
+```
 
-**Boost Skill (`boost-skill`)** brings this exact methodology and execution protocol to **every AI coding CLI and agent environment** in the ecosystem — including Hermes Agent, Claude Code, OpenAI Codex CLI, OpenCode, Aider, Cursor, Windsurf, Roo Code / Cline, Devin, and GitHub Copilot.
+*Or install globally via npm / npx:*
+```bash
+npx boost-skill install
+```
+
+> Automatically discovers and installs adapters for **Hermes Agent**, **Claude Code**, **OpenAI Codex CLI**, **OpenCode**, and adds the universal `boost` CLI binary to your PATH.
 
 ---
 
-## 🏛️ 3-Phase Execution Architecture
+## 📖 What is the `/boost` Protocol?
 
-```
-┌───────────────────────────────────────────────────────────────┐
-│ 1. PLANNING & WORKSPACE ISOLATION                             │
-│    - Scan workspace & map AST call-graphs                     │
-│    - Spawn ephemeral Git worktree (`.worktrees/boost-X`)       │
-│    - Decompose challenge into verifiable subtasks             │
-└───────────────────────────────┬───────────────────────────────┘
-                                │ Dispatches
-        ┌───────────────────────┼───────────────────────┐
-        ▼                       ▼                       ▼
-┌──────────────────┐    ┌──────────────────┐    ┌──────────────────┐
-│ Investigator     │    │ Implementation   │    │ Verifier / TDD   │
-│ Subagent         │    │ Subagent         │    │ Subagent         │
-│ (Traces call-    │    │ (Writes surgical │    │ (Builds target & │
-│ graph & logs;    │    │ patches in       │    │ exercises tests  │
-│ read-only audit) │    │ worktree scope)  │    │ independently)   │
-└──────────────────┘    └──────────────────┘    └──────────────────┘
-        │                       │                       │
-        └───────────────────────┼───────────────────────┘
-                                ▼
-┌───────────────────────────────────────────────────────────────┐
-│ 3. AGGREGATION & AUTO-CORRECTION LOOP                         │
-│    - Run full test suite & edge-case assertions               │
-│    - If FAIL: route diagnostic traceback to worker (max 5x)   │
-│    - If PASS: reconcile changes, merge to branch, & cleanup   │
-│    - Deliver ONLY verified results backed by execution logs   │
-└───────────────────────────────────────────────────────────────┘
-```
+In September 2026, Google introduced the **`/boost`** slash command in the **Google Antigravity CLI**, moving AI development away from fragile single-turn generation into a **distributed multi-agent reasoning and physical verification pipeline**.
+
+Instead of an AI assistant generating code and asking you to review unverified files, `/boost`:
+1. **Isolates** all work in an ephemeral Git worktree — keeping your active branch and working directory 100% clean.
+2. **Decomposes** the problem across specialized subagent streams (Investigator, Implementer, Test Crafter).
+3. **Validates** all changes physically through actual build and test suite execution with a multi-round self-healing loop.
+4. **Delivers** results only when all tests return **100% PASS (Exit code 0)**.
+
+**Boost Skill (`boost-skill`)** brings this exact methodology and execution harness to **every AI coding tool and CLI in the developer ecosystem**.
 
 ---
 
-## 🚀 Quickstart Guides for Top 10 AI Coding CLIs
+## 🏛️ Architecture & Verification Flow
+
+<p align="center">
+  <img src="assets/architecture-diagram.svg" alt="Boost Architecture Diagram" width="100%" />
+</p>
+
+### The 3 Core Execution Phases:
+
+| Phase | Responsibility | Scope & Mechanism |
+| :--- | :--- | :--- |
+| **Phase 1: Planning & Worktree Isolation** | Scans AST call-graphs, formulates hypothesis, and branches into an ephemeral worktree. | `git worktree add -b boost-task .worktrees/boost-task`<br>*(Zero uncommitted changes in active branch)* |
+| **Phase 2: Distributed Subagent Topology** | Spawns parallel specialist workers to investigate, patch code, and write regression tests. | • **Investigator:** Read-only AST & trace reproduction<br>• **Implementer:** Minimal surgical patches<br>• **QA/Tester:** TDD failing test cases (Red to Green) |
+| **Phase 3: Physical Verification & Reconcile** | Compiles project, runs test runner, auto-heals failures (up to 5 rounds), and merges clean code. | `bash scripts/boost-verify.sh`<br>*(Delivers only with verified test execution logs)* |
+
+---
+
+## 📊 Comparison Matrix
+
+| Feature | Standard AI Coding Assistant | Traditional Loop / Agent | **Boost Skill (`/boost`)** |
+| :--- | :--- | :--- | :--- |
+| **Working Tree Safety** | ❌ Edits live files directly | ⚠️ Stashes or creates messy branches | ✅ **Ephemeral isolated Git worktree** |
+| **Verification Method** | ❌ None / asks user to test | ⚠️ Visual LLM code self-inspection | ✅ **Physical compiler & test runner execution** |
+| **Architecture** | ❌ Single-turn linear prompt | ⚠️ Monolithic multi-step loop | ✅ **3-Phase Distributed Subagent Topology** |
+| **Self-Healing** | ❌ Manual prompting required | ⚠️ Prone to hallucinated infinite loops | ✅ **Bounded 5-round diagnostic feedback loop** |
+| **Multi-CLI Portability**| ❌ Tied to specific vendor | ❌ Single tool only | ✅ **Universal adapter for Top 10 AI CLIs** |
+
+---
+
+## 🚀 Supported AI Coding CLIs & Quickstarts
 
 ### 1. 🪽 Nous Research Hermes Agent
-Add the skill to your Hermes skills directory:
 ```bash
-# Copy to global Hermes skills
+# Manual install
+mkdir -p ~/.hermes/skills/autonomous-ai-agents/boost
 cp adapters/hermes/SKILL.md ~/.hermes/skills/autonomous-ai-agents/boost/SKILL.md
 ```
-**Usage:**
+**Trigger inside Hermes:**
 ```text
 /boost Fix intermittent race condition when WebSocket reconnects during token refresh
 ```
@@ -76,11 +92,11 @@ cp adapters/hermes/SKILL.md ~/.hermes/skills/autonomous-ai-agents/boost/SKILL.md
 ---
 
 ### 2. 🟣 Claude Code CLI (Anthropic)
-Copy the protocol directives to your project root or global instructions:
 ```bash
+# Add to project or global config
 cp adapters/claude-code/CLAUDE.md ./CLAUDE.md
 ```
-**Usage:**
+**Trigger inside Claude Code:**
 ```bash
 claude "Run /boost on issue: optimize database N+1 query and add regression tests"
 ```
@@ -88,23 +104,22 @@ claude "Run /boost on issue: optimize database N+1 query and add regression test
 ---
 
 ### 3. 🟢 OpenAI Codex CLI
-Use the Codex sandbox execution wrapper:
 ```bash
+# Run in non-interactive sandbox mode
 codex exec --sandbox danger-full-access "Execute /boost protocol on task: refactor authentication middleware"
 ```
 
 ---
 
 ### 4. ⚡ OpenCode CLI
-Register the OpenCode boost agent rule:
 ```bash
+mkdir -p ~/.opencode/plugins
 cp adapters/opencode/opencode.json ~/.opencode/plugins/boost.json
 ```
 
 ---
 
 ### 5. 🤖 Aider
-Enable Architect mode with the Boost verification test runner:
 ```bash
 cp adapters/aider/.aider.conf.yml ./.aider.conf.yml
 aider --architect --test-cmd "bash scripts/boost-verify.sh"
@@ -113,7 +128,6 @@ aider --architect --test-cmd "bash scripts/boost-verify.sh"
 ---
 
 ### 6. 🖱️ Cursor & Composer
-Drop the `.cursorrules` or `.cursor/rules/boost.mdc` into your repository:
 ```bash
 cp adapters/cursor/.cursorrules ./.cursorrules
 ```
@@ -121,7 +135,6 @@ cp adapters/cursor/.cursorrules ./.cursorrules
 ---
 
 ### 7. 🌊 Windsurf (Cascade)
-Enable Cascade Boost workflows:
 ```bash
 cp adapters/windsurf/.windsurfrules ./.windsurfrules
 ```
@@ -129,7 +142,6 @@ cp adapters/windsurf/.windsurfrules ./.windsurfrules
 ---
 
 ### 8. 🦘 Roo Code / Cline
-Import the `Boost Engineer` custom mode:
 ```bash
 cp adapters/roo-cline/.roomodes ./.roomodes
 ```
@@ -142,36 +154,37 @@ Include `adapters/devin/devin-boost.md` in your task playbook prompts.
 ---
 
 ### 10. 🐙 GitHub Copilot (Workspace & CLI)
-Add instructions to your repo `.github` folder:
 ```bash
 mkdir -p .github && cp adapters/github-copilot/.github/copilot-instructions.md .github/copilot-instructions.md
 ```
 
 ---
 
-## 🛠️ Included Automation Scripts
+## 🛠️ Standalone CLI Commands
 
-* **`scripts/boost-runner.sh`**: Automates worktree creation, testing, merge reconciliation, and cleanup.
-  ```bash
-  bash scripts/boost-runner.sh init my-task     # Create ephemeral worktree
-  bash scripts/boost-runner.sh verify my-task   # Run test suites inside worktree
-  bash scripts/boost-runner.sh reconcile my-task# Merge verified code & prune worktree
-  ```
-* **`scripts/boost-verify.sh`**: Universal polyglot test runner supporting Node.js/TypeScript, Python, Go, Rust, and Flutter.
+When installed, the `boost` CLI binary allows you to drive the lifecycle manually from any terminal:
 
----
-
-## 📜 Core Guarantees & Invariants
-
-1. **Zero Working Tree Pollution**: All exploratory edits live in ephemeral Git worktrees until 100% verified.
-2. **Physical Test Backing**: A task is never marked done based on visual inspection alone; exit code 0 is mandatory.
-3. **Bounded Iteration**: Auto-heals compile and test errors up to 5 iterations before escalating to the developer.
+```bash
+boost init <task_name>       # 1. Spawn isolated ephemeral Git worktree
+boost test                   # 2. Run polyglot test verification in current repo
+boost verify <task_name>     # 3. Run full verification inside the worktree
+boost reconcile <task_name>  # 4. Merge verified commit into active branch & cleanup
+boost abort <task_name>      # 5. Discard worktree and rollback changes
+```
 
 ---
 
-## 👤 Author & Credits
+## 📜 Core Guarantees
+
+1. **Zero Pollution**: Your uncommitted code is never touched or lost while agents experiment.
+2. **Real Test Proof**: Completion reports always contain real test runner outputs, passing assertion counts, and execution exit codes.
+3. **Deterministic Cleanup**: Ephemeral worktrees and temporary branches are automatically pruned upon successful reconciliation.
+
+---
+
+## 👤 Author & Attribution
 
 * **Engineered by:** **Ervareza Naurian** ([@ervareza](https://github.com/ervareza))
-* **Email:** `rianskp644@gmail.com`
 * **Inspiration:** Google Antigravity CLI `/boost` Architecture (September 2026)
+* **Specification:** Read the formal protocol in [SPECIFICATION.md](SPECIFICATION.md)
 * **License:** [MIT](LICENSE)
