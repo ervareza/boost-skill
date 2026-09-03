@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07090e" />
+      <stop offset="50%" stop-color="#0d111a" />
+      <stop offset="100%" stop-color="#05070a" />
+    </linearGradient>
+    <linearGradient id="primary-glow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2a41ff" />
+      <stop offset="50%" stop-color="#00d2ff" />
+      <stop offset="100%" stop-color="#7928ca" />
+    </linearGradient>
+    <linearGradient id="card-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+    <linearGradient id="badge-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f0ff" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#2a41ff" stop-opacity="0.05" />
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1" />
+    </pattern>
+    <filter id="blur-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="60" result="blur" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+
+  <!-- Ambient Glow Orbs -->
+  <circle cx="200" cy="150" r="180" fill="#2a41ff" fill-opacity="0.18" filter="url(#blur-glow)" />
+  <circle cx="1000" cy="480" r="220" fill="#00d2ff" fill-opacity="0.12" filter="url(#blur-glow)" />
+  <circle cx="600" cy="300" r="260" fill="#7928ca" fill-opacity="0.08" filter="url(#blur-glow)" />
+
+  <!-- Outer Framing Card -->
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="#0b0e14" fill-opacity="0.65" stroke="url(#card-border)" stroke-width="1.5" />
+
+  <!-- Top Navigation / Metadata Rail -->
+  <g transform="translate(80, 85)">
+    <!-- Pill Indicator -->
+    <rect x="0" y="0" width="220" height="34" rx="17" fill="url(#badge-glow)" stroke="#00f0ff" stroke-opacity="0.3" stroke-width="1" />
+    <circle cx="16" cy="17" r="4" fill="#00f0ff" />
+    <text x="30" y="22" fill="#00f0ff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5">UNIVERSAL AI SKILL</text>
+
+    <!-- Version & Inspiration Tag -->
+    <text x="940" y="22" text-anchor="end" fill="#8e9bb0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="500">
+      Inspired by <tspan fill="#ffffff" font-weight="700">Google Antigravity /boost</tspan>
+    </text>
+  </g>
+
+  <!-- Main Hero Content -->
+  <g transform="translate(80, 165)">
+    <!-- Main Title -->
+    <text x="0" y="55" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif" font-size="58" font-weight="800" letter-spacing="-1.5">
+      BOOST <tspan fill="url(#primary-glow)">SKILL</tspan>
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="105" fill="#9ba1b0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="400" letter-spacing="-0.2">
+      Multi-Agent Reasoning &amp; Independent Verification Pipeline for All AI Coding CLIs
+    </text>
+  </g>
+
+  <!-- 3-Phase Architecture Feature Grid -->
+  <g transform="translate(80, 310)">
+    <!-- Card 1: Planning & Isolation -->
+    <g transform="translate(0, 0)">
+      <rect width="326" height="180" rx="16" fill="#121620" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1" />
+      <rect x="20" y="20" width="32" height="32" rx="8" fill="#2a41ff" fill-opacity="0.2" />
+      <text x="36" y="42" text-anchor="middle" fill="#5875ff" font-family="monospace" font-size="14" font-weight="700">01</text>
+      <text x="64" y="41" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">Worktree Isolation</text>
+      <text x="20" y="85" fill="#858d9d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" line-height="1.5">
+        <tspan x="20" dy="0">Ephemeral Git worktrees shield</tspan>
+        <tspan x="20" dy="20">active workspaces while planning</tspan>
+        <tspan x="20" dy="20">AST call-graph decompositions.</tspan>
+      </text>
+    </g>
+
+    <!-- Card 2: Distributed Execution -->
+    <g transform="translate(356, 0)">
+      <rect width="326" height="180" rx="16" fill="#121620" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1" />
+      <rect x="20" y="20" width="32" height="32" rx="8" fill="#00d2ff" fill-opacity="0.2" />
+      <text x="36" y="42" text-anchor="middle" fill="#00d2ff" font-family="monospace" font-size="14" font-weight="700">02</text>
+      <text x="64" y="41" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">Distributed Subagents</text>
+      <text x="20" y="85" fill="#858d9d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" line-height="1.5">
+        <tspan x="20" dy="0">Parallel specialist workers:</tspan>
+        <tspan x="20" dy="20">Investigator, Code Implementer,</tspan>
+        <tspan x="20" dy="20">and TDD Test Crafter.</tspan>
+      </text>
+    </g>
+
+    <!-- Card 3: Multi-Round Verification -->
+    <g transform="translate(712, 0)">
+      <rect width="328" height="180" rx="16" fill="#121620" fill-opacity="0.8" stroke="url(#card-border)" stroke-width="1" />
+      <rect x="20" y="20" width="32" height="32" rx="8" fill="#7928ca" fill-opacity="0.2" />
+      <text x="36" y="42" text-anchor="middle" fill="#a855f7" font-family="monospace" font-size="14" font-weight="700">03</text>
+      <text x="64" y="41" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="700">Physical Verification</text>
+      <text x="20" y="85" fill="#858d9d" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="13" line-height="1.5">
+        <tspan x="20" dy="0">Iterative auto-healing loop.</tspan>
+        <tspan x="20" dy="20">Delivers only when build &amp; test</tspan>
+        <tspan x="20" dy="20">suites return 100% PASS.</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Footer Rail -->
+  <g transform="translate(80, 545)">
+    <text x="0" y="0" fill="#586274" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="500">
+      Engineered by <tspan fill="#d4d8e3" font-weight="600">Ervareza Naurian</tspan> • Universal Specification v1.0
+    </text>
+    <text x="1040" y="0" text-anchor="end" fill="#586274" font-family="monospace" font-size="12">
+      Hermes • Claude Code • Codex • OpenCode • Aider • Cursor
+    </text>
+  </g>
+</svg>

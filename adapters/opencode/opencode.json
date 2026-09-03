@@ -1,0 +1,16 @@
+{
+  "$schema": "https://opencode.ai/schema/agent-v1.json",
+  "name": "boost",
+  "description": "Multi-agent reasoning and independent verification pipeline inspired by Google Antigravity /boost.",
+  "triggers": ["/boost", "boost:"],
+  "rules": [
+    "Always create an ephemeral git worktree before modifying code for /boost tasks.",
+    "Spawn dedicated subagents for investigation, implementation, and test creation.",
+    "Do not mark tasks complete without physical execution of test suites (Exit 0).",
+    "Self-heal up to 5 iteration rounds when tests fail before reporting."
+  ],
+  "hooks": {
+    "pre_execution": "bash scripts/boost-runner.sh init $TASK_ID",
+    "post_execution": "bash scripts/boost-runner.sh verify $TASK_ID && bash scripts/boost-runner.sh reconcile $TASK_ID"
+  }
+}

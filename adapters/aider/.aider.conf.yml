@@ -1,0 +1,7 @@
+# Aider configuration for Boost Multi-Agent Verification
+architect: true
+auto-test: true
+test-cmd: "bash scripts/boost-verify.sh"
+map-tokens: 2048
+stream: true
+cache-prompts: true

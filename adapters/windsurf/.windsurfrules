@@ -1,0 +1,9 @@
+# Windsurf Cascade Rules for Boost Mode
+
+Trigger: `/boost`
+
+1. Worktree Isolation: Initialize ephemeral sandbox worktree via `bash scripts/boost-runner.sh init`.
+2. Diagnostic First: Inspect AST symbols and create a failing test case before patching code.
+3. Automated Verification: Execute `bash scripts/boost-verify.sh`.
+4. Auto-Heal: Loop up to 5 times on compiler/test errors.
+5. Reconcile & Report: Merge verified branch and output real test run statistics.

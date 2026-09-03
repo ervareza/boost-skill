@@ -1,0 +1,16 @@
+# Boost Protocol for Cursor & Composer
+
+When executing tasks tagged with `/boost`:
+
+1. **Isolation Principle**:
+   - Run `bash scripts/boost-runner.sh init boost-cursor-task` in the integrated terminal.
+   - Perform all edits within `.worktrees/boost-cursor-task`.
+
+2. **3-Phase Verification**:
+   - Phase 1 (Investigate): Trace symbols, interfaces, and test fixtures.
+   - Phase 2 (Implement): Write code changes and accompanying unit tests.
+   - Phase 3 (Verify): Run `bash scripts/boost-runner.sh verify boost-cursor-task`.
+
+3. **Loop Until Green**:
+   - Never report "Done" until test suites exit 0.
+   - Reconcile with `bash scripts/boost-runner.sh reconcile boost-cursor-task`.

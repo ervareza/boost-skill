@@ -1,0 +1,31 @@
+{
+  "name": "boost-skill",
+  "version": "1.0.0",
+  "description": "Universal /boost multi-agent reasoning and independent verification pipeline for all AI coding CLIs and agent environments.",
+  "author": "Ervareza Naurian <rianskp644@gmail.com> (https://github.com/ervareza)",
+  "license": "MIT",
+  "homepage": "https://github.com/ervareza/boost-skill",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ervareza/boost-skill.git"
+  },
+  "keywords": [
+    "boost",
+    "antigravity",
+    "ai-agent",
+    "multi-agent",
+    "verification-pipeline",
+    "hermes-agent",
+    "claude-code",
+    "codex-cli",
+    "opencode",
+    "tdd",
+    "worktree-isolation"
+  ],
+  "scripts": {
+    "verify": "bash scripts/boost-verify.sh",
+    "boost:init": "bash scripts/boost-runner.sh init",
+    "boost:verify": "bash scripts/boost-runner.sh verify",
+    "boost:reconcile": "bash scripts/boost-runner.sh reconcile"
+  }
+}
