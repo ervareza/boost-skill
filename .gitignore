@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+.worktrees/
+boost-runs/
+coverage/
+.nyc_output/
+.cache/
+*.log

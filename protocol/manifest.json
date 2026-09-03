@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "boost-skill",
+  "version": "1.1.0",
+  "protocol": "protocol/boost.md",
+  "inspiredBy": {
+    "name": "Google Antigravity /boost",
+    "url": "https://antigravity.google/"
+  },
+  "creator": "Ervareza Naurian",
+  "excludedTools": ["antigravity"],
+  "defaultPolicy": {
+    "maxRepairRounds": 5,
+    "requireCleanTarget": true,
+    "requireRegressionEvidence": true,
+    "autoReconcile": false,
+    "autoPush": false,
+    "allowDestructiveCommands": false
+  },
+  "roles": ["orchestrator", "investigator", "implementer", "test-crafter", "verifier"],
+  "states": ["intake", "preflight", "plan", "investigate", "implement", "verify", "repair", "review", "reconcile", "complete", "abort", "conflict"],
+  "adapters": {
+    "hermes": {"level": "native", "path": "adapters/hermes/SKILL.md"},
+    "claude-code": {"level": "native-or-prompt", "path": "adapters/claude-code/CLAUDE.md"},
+    "codex": {"level": "prompt", "path": "adapters/codex/CODEX.md"},
+    "opencode": {"level": "native-or-prompt", "path": "adapters/opencode/README.md"},
+    "aider": {"level": "prompt", "path": "adapters/aider/.aider.conf.yml"},
+    "cursor": {"level": "native-or-prompt", "path": "adapters/cursor/.cursorrules"},
+    "windsurf": {"level": "native-or-prompt", "path": "adapters/windsurf/.windsurfrules"},
+    "roo-code": {"level": "native-or-prompt", "path": "adapters/roo-cline/.roomodes"},
+    "devin": {"level": "prompt", "path": "adapters/devin/devin-boost.md"},
+    "github-copilot": {"level": "prompt", "path": "adapters/github-copilot/.github/copilot-instructions.md"}
+  }
+}

@@ -1,0 +1,11 @@
+{
+    "schema_version": 2,
+    "commit": "03addd30c69866c98b28e9db49c62de1ddbea189",
+    "indexed_at": "2026-09-03T17:31:46Z",
+    "project": "boost-skill",
+    "nodes": 95,
+    "edges": 92,
+    "original_size": 1179648,
+    "compressed_size": 10803,
+    "compression_level": 9
+}

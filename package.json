@@ -1,6 +1,6 @@
 {
   "name": "boost-skill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Universal /boost multi-agent reasoning and independent verification pipeline for all AI coding CLIs and agent environments.",
   "author": "Ervareza Naurian (https://github.com/ervareza)",
   "license": "MIT",
@@ -28,9 +28,12 @@
     "worktree-isolation"
   ],
   "scripts": {
+    "test": "bash tests/runner.test.sh",
+    "lint": "bash -n install.sh scripts/*.sh tests/*.sh",
     "verify": "bash scripts/boost-verify.sh",
     "boost:init": "bash scripts/boost-runner.sh init",
     "boost:verify": "bash scripts/boost-runner.sh verify",
-    "boost:reconcile": "bash scripts/boost-runner.sh reconcile"
+    "boost:reconcile": "bash scripts/boost-runner.sh reconcile",
+    "boost:abort": "bash scripts/boost-runner.sh abort"
   }
 }
