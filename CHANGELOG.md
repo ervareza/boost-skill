@@ -2,6 +2,11 @@
 
 All notable changes to Boost Skill are documented here.
 
+## [v1.1.2] - 2026-09-11
+### Changed
+- Complete rebranding across all files, runners, test suites, CLI installers, and adapters to **Shiro X Dev/boost**.
+- Update script prefixes, verification logging, and error messaging to `[Shiro X Dev/boost]`.
+
 ## [v1.1.1] - 2026-09-11
 ### Changed
 - Rebrand and update protocol identity to **Shiro X Dev/boost**.

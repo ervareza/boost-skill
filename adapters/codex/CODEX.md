@@ -1,4 +1,4 @@
-# Boost Protocol for OpenAI Codex CLI
+# Shiro X Dev/boost Protocol for OpenAI Codex CLI
 
 ## Invocation & Playbook
 When running non-interactive or interactive Codex tasks with high stakes:

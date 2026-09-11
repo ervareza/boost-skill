@@ -1,4 +1,4 @@
-# Boost Protocol for Claude Code CLI
+# Shiro X Dev/boost Protocol for Claude Code CLI
 
 When the user prefixes a prompt with `/boost` or asks for a deep verified refactor/fix:
 

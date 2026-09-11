@@ -1,4 +1,4 @@
-# Aider configuration for Boost Multi-Agent Verification
+# Aider configuration for Shiro X Dev/boost Multi-Agent Verification
 architect: true
 auto-test: true
 test-cmd: "bash scripts/boost-verify.sh"

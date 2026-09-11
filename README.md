@@ -19,7 +19,7 @@
 
 ## ⚡ 1-Line Quick Install
 
-Install **Boost Skill** across all detected AI agent environments on your machine in one command:
+Install **Shiro X Dev/boost** across all detected AI agent environments on your machine in one command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/ervareza/boost-skill/main/install.sh | bash
@@ -44,7 +44,7 @@ Instead of an AI assistant generating code and asking you to review unverified f
 3. **Validates** all changes physically through actual build and test suite execution with a multi-round self-healing loop.
 4. **Delivers** results only when all tests return **100% PASS (Exit code 0)**.
 
-**Boost Skill (`boost-skill`)** brings this exact methodology and execution harness to **every AI coding tool and CLI in the developer ecosystem**.
+**Shiro X Dev/boost (`boost-skill`)** brings this exact methodology and execution harness to **every AI coding tool and CLI in the developer ecosystem**.
 
 ---
 
@@ -66,7 +66,7 @@ Instead of an AI assistant generating code and asking you to review unverified f
 
 ## 📊 Comparison Matrix
 
-| Feature | Standard AI Coding Assistant | Traditional Loop / Agent | **Boost Skill (`/boost`)** |
+| Feature | Standard AI Coding Assistant | Traditional Loop / Agent | **Shiro X Dev/boost (`/boost`)** |
 | :--- | :--- | :--- | :--- |
 | **Working Tree Safety** | ❌ Edits live files directly | ⚠️ Stashes or creates messy branches | ✅ **Ephemeral isolated Git worktree** |
 | **Verification Method** | ❌ None / asks user to test | ⚠️ Visual LLM code self-inspection | ✅ **Physical compiler & test runner execution** |

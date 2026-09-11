@@ -13,7 +13,7 @@ RED='\033[0;31m'
 YELLOW='\033[0;33m'
 RESET='\033[0m'
 
-echo -e "🔍 ${BOLD}[Boost Verify] Detecting project stack & running verification suite...${RESET}"
+echo -e "🔍 ${BOLD}[Shiro X Dev/boost Verify] Detecting project stack & running verification suite...${RESET}"
 
 TOTAL_CHECKS=0
 PASSED_CHECKS=0
@@ -125,10 +125,10 @@ if [ -f "pubspec.yaml" ]; then
 fi
 
 if [ "$TOTAL_CHECKS" -gt 0 ]; then
-    echo -e "🎉 ${GREEN}${BOLD}[Boost Verify] All $PASSED_CHECKS/$TOTAL_CHECKS physical verification checks PASSED!${RESET}"
+    echo -e "🎉 ${GREEN}${BOLD}[Shiro X Dev/boost Verify] All $PASSED_CHECKS/$TOTAL_CHECKS physical verification checks PASSED!${RESET}"
     exit 0
 else
-    echo -e "⚠️  ${YELLOW}[Boost Verify] No automated test suites or linters found in this project.${RESET}"
+    echo -e "⚠️  ${YELLOW}[Shiro X Dev/boost Verify] No automated test suites or linters found in this project.${RESET}"
     echo "👉 Recommendation: Add a test script or harness to achieve full verification confidence."
     exit 0
 fi

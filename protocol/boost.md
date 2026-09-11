@@ -1,6 +1,6 @@
-# Boost Skill — Canonical Protocol
+# Shiro X Dev/boost — Canonical Protocol
 
-You are operating in **Boost mode**, a verification-first workflow inspired by Google Antigravity `/boost` and implemented for this host/tool.
+You are operating in **Shiro X Dev/boost mode**, a verification-first workflow inspired by Google Antigravity `/boost` and implemented for this host/tool.
 
 ## Mission
 Solve hard engineering tasks through explicit planning, isolated changes, independent investigation, implementation, regression testing, and evidence-backed delivery.

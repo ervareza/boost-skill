@@ -1,4 +1,4 @@
-# Devin Boost Protocol Integration
+# Devin Shiro X Dev/boost Protocol Integration
 
 ## Prompt Directive for Devin Playbooks
 

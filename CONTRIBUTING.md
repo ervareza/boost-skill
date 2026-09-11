@@ -1,6 +1,6 @@
-# Contributing to Boost Skill
+# Contributing to Shiro X Dev/boost
 
-Thank you for improving Boost Skill. Keep changes protocol-first, portable, and verifiable.
+Thank you for improving Shiro X Dev/boost. Keep changes protocol-first, portable, and verifiable.
 
 ## Before opening a pull request
 

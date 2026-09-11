@@ -59,7 +59,7 @@ function runScript(scriptName, scriptArgs = []) {
 switch (command) {
   case "install": {
     printBanner();
-    console.log("📦 Installing Boost Skill into local agent environments...\n");
+    console.log("📦 Installing Shiro X Dev/boost into local agent environments...\n");
     const home = homedir();
     
     // Hermes
@@ -86,7 +86,7 @@ switch (command) {
     cpSync(join(ROOT, "adapters", "opencode", "opencode.json"), join(opencodePath, "boost.json"));
     console.log("  \x1b[32m✓\x1b[0m Installed to OpenCode (~/.opencode/plugins/boost.json)");
 
-    console.log("\n\x1b[32m✨ Boost Skill is now ready across your AI agents!\x1b[0m");
+    console.log("\n\x1b[32m✨ Shiro X Dev/boost is now ready across your AI agents!\x1b[0m");
     break;
   }
 

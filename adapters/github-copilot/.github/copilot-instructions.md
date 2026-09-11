@@ -1,4 +1,4 @@
-# GitHub Copilot Workspace / CLI Instructions for Boost Protocol
+# GitHub Copilot Workspace / CLI Instructions for Shiro X Dev/boost Protocol
 
 When requested to `/boost` or perform high-assurance refactoring:
 - **Never edit main branch directly without isolation**: Execute work within `.worktrees/boost-*`.

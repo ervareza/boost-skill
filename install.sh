@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# Boost Skill - Universal One-Line Installer & Multi-CLI Auto-Detector
+# Shiro X Dev/boost - Universal One-Line Installer & Multi-CLI Auto-Detector
 # https://github.com/ervareza/boost-skill
 # Author: Ervareza Naurian
 # ==============================================================================
@@ -33,7 +33,7 @@ echo -e "Engineered by ${PURPLE}Ervareza Naurian${RESET} • Inspired by ${YELLO
 TMP_DIR="$(mktemp -d)"
 trap 'rm -rf "$TMP_DIR"' EXIT
 
-echo -e "📦 Fetching latest Boost Skill definitions from GitHub..."
+echo -e "📦 Fetching latest Shiro X Dev/boost definitions from GitHub..."
 REPO_URL="https://github.com/ervareza/boost-skill.git"
 git clone --depth 1 --quiet "$REPO_URL" "$TMP_DIR"
 
@@ -111,7 +111,7 @@ EOF
 chmod +x "$HOME/.local/bin/boost"
 echo -e "  ↳ [${GREEN}INSTALLED${RESET}] Universal CLI binary installed to ${CYAN}~/.local/bin/boost${RESET}"
 
-echo -e "\n🎉 ${GREEN}${BOLD}Boost Skill Installation Complete!${RESET}"
+echo -e "\n🎉 ${GREEN}${BOLD}Shiro X Dev/boost Installation Complete!${RESET}"
 echo -e "✨ Installed into ${BOLD}$INSTALLED_COUNT${RESET} detected AI agent environments."
 echo -e "🚀 To use in any project, simply run:"
 echo -e "   ${CYAN}boost init <task_name>${RESET}     - Spawn isolated worktree"

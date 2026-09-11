@@ -1,11 +1,11 @@
-# Universal Boost Adapter Contract
+# Universal Shiro X Dev/boost Adapter Contract
 
 This directory contains the protocol contract shared by every integration.
 
 ## Adapter levels
 
 - **Native**: the tool has a documented extension point that can express the adapter (for example, a skill, plugin, agent, workflow, or custom mode).
-- **Prompt**: the tool can load instructions, but Boost orchestration is performed by the host CLI and the model follows a playbook.
+- **Prompt**: the tool can load instructions, but Shiro X Dev/boost orchestration is performed by the host CLI and the model follows a playbook.
 - **Manual**: the tool has no verified automation hook; the user copies the prompt or runs the host commands.
 
 Adapters must state their level honestly. A Markdown rules file cannot spawn agents, create a secure sandbox, or prove a test passed by itself.

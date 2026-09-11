@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ==============================================================================
-# tests/runner.test.sh - Automated Self-Test Suite for Boost Skill
+# tests/runner.test.sh - Automated Self-Test Suite for Shiro X Dev/boost
 # ==============================================================================
 
 set -eo pipefail
@@ -19,7 +19,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-echo -e "${CYAN}${BOLD}🧪 Starting Boost Skill Self-Verification Test Suite...${RESET}\n"
+echo -e "${CYAN}${BOLD}🧪 Starting Shiro X Dev/boost Self-Verification Test Suite...${RESET}\n"
 
 # 1. Test CLI Help & Version Output
 echo -n "  ▶ [Test 1] Testing bin/boost.mjs CLI execution... "
@@ -94,4 +94,4 @@ echo -n "  ▶ [Test 5] Testing Polyglot Verification Stack Detector... "
 bash "$ROOT_DIR/scripts/boost-verify.sh" > /dev/null
 echo -e "${GREEN}PASSED${RESET}"
 
-echo -e "\n🎉 ${GREEN}${BOLD}All 5 Boost Skill Verification Tests PASSED 100%!${RESET}\n"
+echo -e "\n🎉 ${GREEN}${BOLD}All 5 Shiro X Dev/boost Verification Tests PASSED 100%!${RESET}\n"

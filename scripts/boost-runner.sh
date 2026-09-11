@@ -12,7 +12,7 @@ BOOST_NAME="${2:-}"
 
 # Ensure inside a git repository
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-    echo "❌ [Boost] Error: Not inside a Git repository!" >&2
+    echo "❌ [Shiro X Dev/boost] Error: Not inside a Git repository!" >&2
     exit 1
 fi
 
@@ -26,7 +26,7 @@ fi
 
 # Invariant: Prevent path traversal and enforce safe alphanumeric + dash/underscore
 if [[ ! "$BOOST_NAME" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]] || [[ "$BOOST_NAME" =~ \.\. ]]; then
-    echo "❌ [Boost] Error: Invalid task name '$BOOST_NAME'. Allowed: [A-Za-z0-9._-], no path traversal." >&2
+    echo "❌ [Shiro X Dev/boost] Error: Invalid task name '$BOOST_NAME'. Allowed: [A-Za-z0-9._-], no path traversal." >&2
     exit 1
 fi
 
@@ -34,7 +34,7 @@ WORKTREE_DIR="$WORKTREES_ROOT/$BOOST_NAME"
 # Resolve absolute canonical directory path
 RESOLVED_PATH="$(cd "$REPO_ROOT" && mkdir -p .worktrees && cd .worktrees && pwd)/$BOOST_NAME"
 if [[ "$RESOLVED_PATH" != "$WORKTREES_ROOT/$BOOST_NAME" ]]; then
-    echo "❌ [Boost] Security error: Worktree path escapes .worktrees directory!" >&2
+    echo "❌ [Shiro X Dev/boost] Security error: Worktree path escapes .worktrees directory!" >&2
     exit 1
 fi
 
@@ -42,16 +42,16 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 case "$ACTION" in
     init)
-        echo "🚀 [Boost] Initializing isolated ephemeral worktree: $WORKTREE_DIR"
+        echo "🚀 [Shiro X Dev/boost] Initializing isolated ephemeral worktree: $WORKTREE_DIR"
         
         # Check if worktree or branch already exists
         if [ -d "$WORKTREE_DIR" ]; then
-            echo "⚠️  [Boost] Worktree directory $WORKTREE_DIR already exists."
+            echo "⚠️  [Shiro X Dev/boost] Worktree directory $WORKTREE_DIR already exists."
             exit 0
         fi
 
         if git show-ref --quiet --heads "$BOOST_NAME"; then
-            echo "❌ [Boost] Error: Git branch '$BOOST_NAME' already exists. Use a unique task name." >&2
+            echo "❌ [Shiro X Dev/boost] Error: Git branch '$BOOST_NAME' already exists. Use a unique task name." >&2
             exit 1
         fi
 
@@ -68,16 +68,16 @@ case "$ACTION" in
   "verified": false
 }
 EOF
-        echo "✅ [Boost] Worktree ready at: $WORKTREE_DIR"
+        echo "✅ [Shiro X Dev/boost] Worktree ready at: $WORKTREE_DIR"
         echo "👉 Cd into worktree and perform multi-agent changes: cd $WORKTREE_DIR"
         ;;
 
     verify)
         if [ ! -d "$WORKTREE_DIR" ]; then
-            echo "❌ [Boost] Worktree directory $WORKTREE_DIR does not exist!" >&2
+            echo "❌ [Shiro X Dev/boost] Worktree directory $WORKTREE_DIR does not exist!" >&2
             exit 1
         fi
-        echo "🧪 [Boost] Running physical verification inside $WORKTREE_DIR..."
+        echo "🧪 [Shiro X Dev/boost] Running physical verification inside $WORKTREE_DIR..."
         
         # Find verification engine
         VERIFIER=""
@@ -90,13 +90,13 @@ EOF
         fi
 
         if [ -z "$VERIFIER" ]; then
-            echo "❌ [Boost] boost-verify.sh not found!" >&2
+            echo "❌ [Shiro X Dev/boost] boost-verify.sh not found!" >&2
             exit 1
         fi
 
         pushd "$WORKTREE_DIR" > /dev/null
         if bash "$VERIFIER"; then
-            echo "🎉 [Boost] Physical verification SUCCESS (100% PASS)"
+            echo "🎉 [Shiro X Dev/boost] Physical verification SUCCESS (100% PASS)"
             # Update verification stamp
             if [ -f ".boost-manifest.json" ]; then
                 python3 -c "
@@ -116,7 +116,7 @@ except Exception:
             popd > /dev/null
             exit 0
         else
-            echo "💥 [Boost] Physical verification FAILED. Needs auto-healing round." >&2
+            echo "💥 [Shiro X Dev/boost] Physical verification FAILED. Needs auto-healing round." >&2
             popd > /dev/null
             exit 1
         fi
@@ -124,11 +124,11 @@ except Exception:
 
     reconcile)
         if [ ! -d "$WORKTREE_DIR" ]; then
-            echo "❌ [Boost] Worktree directory $WORKTREE_DIR does not exist!" >&2
+            echo "❌ [Shiro X Dev/boost] Worktree directory $WORKTREE_DIR does not exist!" >&2
             exit 1
         fi
 
-        echo "📦 [Boost] Reconciling verified changes from $BOOST_NAME into current branch..."
+        echo "📦 [Shiro X Dev/boost] Reconciling verified changes from $BOOST_NAME into current branch..."
         TARGET_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
         
         # Safety gate: verify state
@@ -140,17 +140,17 @@ except Exception:
         fi
         popd > /dev/null
 
-        echo "🔄 [Boost] Merging branch $BOOST_NAME into $TARGET_BRANCH..."
+        echo "🔄 [Shiro X Dev/boost] Merging branch $BOOST_NAME into $TARGET_BRANCH..."
         git merge "$BOOST_NAME" --no-edit
 
-        echo "🧹 [Boost] Cleaning up ephemeral worktree and branch..."
+        echo "🧹 [Shiro X Dev/boost] Cleaning up ephemeral worktree and branch..."
         git worktree remove "$WORKTREE_DIR" --force
         git branch -D "$BOOST_NAME" 2>/dev/null || true
-        echo "✨ [Boost] Task $BOOST_NAME successfully reconciled & clean!"
+        echo "✨ [Shiro X Dev/boost] Task $BOOST_NAME successfully reconciled & clean!"
         ;;
 
     abort)
-        echo "🛑 [Boost] Aborting and pruning worktree $WORKTREE_DIR..."
+        echo "🛑 [Shiro X Dev/boost] Aborting and pruning worktree $WORKTREE_DIR..."
         if [ -d "$WORKTREE_DIR" ]; then
             git worktree remove "$WORKTREE_DIR" --force 2>/dev/null || {
                 # Safe cleanup: only remove if strictly inside WORKTREES_ROOT
@@ -161,7 +161,7 @@ except Exception:
             }
         fi
         git branch -D "$BOOST_NAME" 2>/dev/null || true
-        echo "🧹 [Boost] Cleaned up."
+        echo "🧹 [Shiro X Dev/boost] Cleaned up."
         ;;
 
     *)
