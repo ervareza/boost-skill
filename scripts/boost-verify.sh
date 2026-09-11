@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # ==============================================================================
 # boost-verify.sh - Universal Test & Build Verification Engine
-# Part of Boost Skill (https://github.com/ervareza/boost-skill)
-# Author: Ervareza Naurian (@ervareza)
+# Part of Shiro X Dev/boost (https://github.com/ervareza/boost-skill)
+# Author: Ervareza Naurian / Shiro X Dev (@ervareza)
 # ==============================================================================
 
 set -eo pipefail
