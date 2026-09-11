@@ -2,10 +2,10 @@
   <img src="assets/hero-banner.svg" alt="Boost Skill Hero Banner" width="100%" />
 </p>
 
-<h1 align="center">⚡ BOOST SKILL (Universal <code>/boost</code> Protocol)</h1>
+<h1 align="center">⚡ Shiro X Dev/boost (Universal <code>/boost</code> Protocol)</h1>
 
 <p align="center">
-  <strong>Multi-Agent Reasoning & Independent Physical Verification Pipeline for All AI Coding CLIs</strong>
+  <strong>Shiro X Dev Multi-Agent Reasoning & Independent Physical Verification Pipeline for All AI Coding CLIs</strong>
 </p>
 
 <p align="center">

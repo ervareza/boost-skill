@@ -1,7 +1,7 @@
-# Specification: The Universal `/boost` Multi-Agent Protocol
+# Specification: Shiro X Dev/boost Multi-Agent Protocol
 
 **Version:** 1.0.0  
-**Author:** Ervareza Naurian ([@ervareza](https://github.com/ervareza))  
+**Author:** Ervareza Naurian / Shiro X Dev ([@ervareza](https://github.com/ervareza))  
 **Origin:** Inspired by Google Antigravity CLI `/boost` Architecture (September 2026)  
 **Target Environments:** Hermes Agent, Claude Code, OpenAI Codex CLI, OpenCode, Aider, Cursor, Windsurf, Roo Code / Cline, Devin, GitHub Copilot.
 

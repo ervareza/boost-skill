@@ -2,7 +2,10 @@
 
 All notable changes to Boost Skill are documented here.
 
-## [Unreleased]
+## [v1.1.1] - 2026-09-11
+### Changed
+- Rebrand and update protocol identity to **Shiro X Dev/boost**.
+- Update Hermes Agent adapter and CLI banner to display Shiro X Dev/boost.
 
 - Harden the universal installer with dry-run, backups, atomic writes, and explicit adapter status.
 - Add a canonical protocol manifest and machine-readable compatibility metadata.

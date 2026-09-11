@@ -28,8 +28,8 @@ function printBanner() {
  | |_) | (_) | (_) \\__ \\| |_   ___) |   < | | | |
  |____/ \\___/ \\___/|___/ \\__| |____/|_|\\_\\|_|_|_|
 \x1b[0m
-  \x1b[1m⚡ Universal /boost Multi-Agent Reasoning & Verification Protocol\x1b[0m
-  \x1b[90mEngineered by Ervareza Naurian • Inspired by Google Antigravity /boost\x1b[0m\n`);
+  \x1b[1m⚡ Shiro X Dev/boost — Universal Multi-Agent Reasoning & Verification Protocol\x1b[0m
+  \x1b[90mEngineered by Ervareza Naurian (Shiro X Dev) • Inspired by Google Antigravity /boost\x1b[0m\n`);
 }
 
 // Invariant: task name security validation (alphanumeric + safe symbols)

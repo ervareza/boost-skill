@@ -1,7 +1,7 @@
 {
   "name": "boost-skill",
-  "version": "1.1.0",
-  "description": "Universal /boost multi-agent reasoning and independent verification pipeline for all AI coding CLIs and agent environments.",
+  "version": "1.1.1",
+  "description": "Shiro X Dev/boost — Universal multi-agent reasoning and independent verification pipeline for all AI coding CLIs and agent environments.",
   "author": "Ervareza Naurian (https://github.com/ervareza)",
   "license": "MIT",
   "homepage": "https://github.com/ervareza/boost-skill",
