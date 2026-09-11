@@ -1,5 +1,6 @@
 ---
 name: boost
+title: "Shiro X Dev/boost"
 description: "Shiro X Dev/boost — Universal Multi-Agent Reasoning & Independent Physical Verification Pipeline."
 tags: [shiro-x-dev, boost, multi-agent, verification-pipeline, refactoring, deep-reasoning, worktree-isolation]
 ---
